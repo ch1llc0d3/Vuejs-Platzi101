@@ -1,8 +1,8 @@
 <template>
-<div>
-    <p>Lorem ipsum dolor</p>
-    <div>{{ text }}</div>
-</div>
+    <div>
+        <p>Hola que tal</p>
+        <div>{{ text }}</div>
+    </div>
 </template>
 
 <script>
