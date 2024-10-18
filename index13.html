@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app"></div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: ["uno", "dos", "tres"]
+                };
+            },
+            template: `
+                <ul>
+                    <v-item v-for="(item, index) in items"
+                    :key="index"
+                    :text="item">
+                    </v-item>
+                    <!-- Here's an example of how the default prop can show -->
+                    <v-item></v-item>
+                </ul>
+            `
+        });
+
+        app.component("v-item", {
+            props: {
+                text: {
+                    type: String,
+                    default: "Texto vacio"
+                }
+            },
+            template: `<li>{{ text || 'Texto vacio' }}</li>`
+        });
+
+        const vm = app.mount("#app");
+    </script>
+</body>
+</html>
